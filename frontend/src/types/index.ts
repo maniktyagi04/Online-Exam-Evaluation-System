@@ -45,7 +45,8 @@ export interface Attempt {
   startTime: string;
   endTime?: string;
   score?: number;
-  exam?: Pick<Exam, 'id' | 'title' | 'duration'>;
+  exam?: Exam; // Allow full exam for active session
+  answers?: Answer[];
   result?: Result;
 }
 

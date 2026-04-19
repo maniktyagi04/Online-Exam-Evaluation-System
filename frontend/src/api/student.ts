@@ -8,7 +8,7 @@ export interface DashboardStats {
   highestScore: number;
 }
 
-export interface ExamWithStatus extends Exam {
+export interface ExamWithStatus extends Omit<Exam, 'status'> {
   status: 'NOT_STARTED' | 'IN_PROGRESS' | 'COMPLETED';
   attemptId: string | null;
 }

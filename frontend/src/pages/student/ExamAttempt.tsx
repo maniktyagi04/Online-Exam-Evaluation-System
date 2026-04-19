@@ -31,7 +31,7 @@ const ExamAttempt: React.FC = () => {
       setLoading(true);
       const attempt = await startExamApi(id);
       setAttemptId(attempt.id);
-      setExam(attempt.exam);
+      setExam(attempt.exam ?? null);
       
       // Load any existing answers if resuming
       if (attempt.answers && attempt.answers.length > 0) {
