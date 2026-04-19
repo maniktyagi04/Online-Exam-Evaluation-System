@@ -1,0 +1,24 @@
+import { User, Role } from './User';
+
+/**
+ * Student extends User — can attempt exams and view results.
+ */
+export class Student extends User {
+  constructor(
+    id: string,
+    name: string,
+    email: string,
+    password: string,
+    createdAt: Date
+  ) {
+    super(id, name, email, password, Role.STUDENT, createdAt);
+  }
+
+  canAttemptExam(): boolean {
+    return true;
+  }
+
+  canViewOwnResults(): boolean {
+    return true;
+  }
+}
