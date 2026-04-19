@@ -6,8 +6,8 @@
 
 ## 🚀 Live Demo
 
-- 🌐 Frontend: https://your-frontend-url.vercel.app  
-- 🔗 Backend API: https://your-backend-url.onrender.com  
+- 🌐 Frontend: https://online-exam-evaluation-system.vercel.app/login 
+- 🔗 Backend API: https://online-exam-backend-1dc3.onrender.com 
 
 ---
 
