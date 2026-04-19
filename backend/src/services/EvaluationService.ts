@@ -24,10 +24,6 @@ interface QuestionData {
   options: Array<{ id: string; optionText: string; isCorrect: boolean }>;
 }
 
-/**
- * EvaluationService — uses Polymorphism to evaluate different question types.
- * Each question type implements its own evaluate() strategy.
- */
 export class EvaluationService {
   evaluate(
     questions: QuestionData[],
@@ -38,7 +34,6 @@ export class EvaluationService {
     const evaluated: EvaluatedAnswer[] = questions.map((q) => {
       const response = answerMap.get(q.id) ?? '';
 
-      // Polymorphism: instantiate the correct question evaluator based on type
       let evaluator: Question;
       if (q.type === QuestionType.MCQ) {
         evaluator = new MCQQuestion(

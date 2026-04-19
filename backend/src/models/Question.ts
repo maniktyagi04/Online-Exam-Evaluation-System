@@ -9,10 +9,7 @@ export interface OptionData {
   isCorrect: boolean;
 }
 
-/**
- * Abstract Question class — defines the evaluate() contract.
- * MCQQuestion and DescriptiveQuestion implement this (Polymorphism).
- */
+
 export abstract class Question {
   protected readonly id: string;
   protected readonly examId: string;

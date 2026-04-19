@@ -26,7 +26,6 @@ export class ResultService {
     const result = await this.resultRepository.findByAttemptId(attemptId);
     if (!result) throw ApiError.notFound('Result not found');
 
-    // Students can only view their own results
     if (role !== 'ADMIN' && result.attempt.userId !== userId) {
       throw ApiError.forbidden('You are not authorised to view this result');
     }

@@ -1,8 +1,5 @@
 import { User, Role } from './User';
 
-/**
- * Student extends User — can attempt exams and view results.
- */
 export class Student extends User {
   constructor(
     id: string,

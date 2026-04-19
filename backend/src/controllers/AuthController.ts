@@ -21,7 +21,7 @@ export class AuthController {
         return;
       }
 
-      // Note: any 'role' field in req.body is ignored — service always creates STUDENT
+
       const result = await this.authService.register(name, email, password);
       res.status(201).json({ success: true, message: 'Account created', ...result });
     } catch (err) {

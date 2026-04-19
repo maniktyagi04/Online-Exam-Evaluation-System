@@ -31,7 +31,7 @@ export class AttemptService {
       if (existing.endTime) {
         throw new ApiError('You have already attempted this exam', 400);
       }
-      return existing; // Resume existing attempt
+      return existing; 
     }
 
     return this.attemptRepository.create({ userId, examId });

@@ -1,6 +1,3 @@
-/**
- * Centralised API error class for consistent HTTP error responses.
- */
 export class ApiError extends Error {
   public readonly statusCode: number;
   public readonly isOperational: boolean;

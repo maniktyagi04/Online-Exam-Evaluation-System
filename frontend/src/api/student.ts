@@ -39,17 +39,12 @@ export interface AttemptHistoryItem {
   status: 'IN_PROGRESS' | 'COMPLETED';
 }
 
-/**
- * Fetch student dashboard summary (stats, exams with state, performance)
- */
 export const getStudentDashboardApi = async (): Promise<DashboardData> => {
   const res = await apiClient.get<{ success: boolean; data: DashboardData }>('/student/dashboard');
   return res.data.data;
 };
 
-/**
- * Fetch full attempt history for a student
- */
+
 export const getAttemptHistoryApi = async (): Promise<AttemptHistoryItem[]> => {
   const res = await apiClient.get<{ success: boolean; data: AttemptHistoryItem[] }>('/student/history');
   return res.data.data;

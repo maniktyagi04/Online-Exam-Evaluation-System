@@ -1,8 +1,6 @@
 import { Question, QuestionType, OptionData } from './Question';
 
-/**
- * MCQQuestion — auto-evaluates by matching answered option to correct option.
- */
+
 export class MCQQuestion extends Question {
   private readonly options: OptionData[];
 

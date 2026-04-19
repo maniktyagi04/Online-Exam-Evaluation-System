@@ -5,17 +5,15 @@ import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import RoleRoute from './components/RoleRoute';
 
-// Auth pages
 import Login    from './pages/Login';
 import Register from './pages/Register';
 
-// Student pages
 import StudentDashboard from './pages/student/StudentDashboard';
 import ExamAttempt      from './pages/student/ExamAttempt';
 import ResultView       from './pages/student/ResultView';
 import AttemptHistory   from './pages/student/AttemptHistory';
 
-// Admin pages
+
 import AdminDashboard from './pages/admin/AdminDashboard';
 import ExamManager    from './pages/admin/ExamManager';
 import QuestionEditor from './pages/admin/QuestionEditor';

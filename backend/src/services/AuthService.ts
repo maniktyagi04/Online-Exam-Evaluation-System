@@ -14,9 +14,7 @@ export class AuthService {
     this.userRepository = new UserRepository();
   }
 
-  /**
-   * Register — ALWAYS creates a STUDENT. Role cannot be supplied by caller.
-   */
+
   async register(name: string, email: string, password: string) {
     const existing = await this.userRepository.findByEmail(email);
     if (existing) {
@@ -29,7 +27,6 @@ export class AuthService {
 
     const hashedPassword = await hashPassword(password);
 
-    // Strictly enforce STUDENT role — no client-supplied role accepted
     const userRecord = await this.userRepository.create({
       name: name.trim(),
       email: email.toLowerCase().trim(),

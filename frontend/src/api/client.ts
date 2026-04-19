@@ -3,10 +3,9 @@ import axios from 'axios';
 const apiClient = axios.create({
   baseURL: (import.meta.env.VITE_API_URL as string) || '/api',
   headers: { 'Content-Type': 'application/json' },
-  timeout: 15000, // Slightly longer timeout for production cold starts
+  timeout: 15000, 
 });
 
-// Attach JWT token automatically
 apiClient.interceptors.request.use((config) => {
   const token = localStorage.getItem('exam_token');
   if (token) {
@@ -15,7 +14,6 @@ apiClient.interceptors.request.use((config) => {
   return config;
 });
 
-// Handle 401 globally — clear storage and redirect to login
 apiClient.interceptors.response.use(
   (res) => res,
   (error) => {

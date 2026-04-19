@@ -2,10 +2,6 @@ import { Role } from '@prisma/client';
 
 export { Role };
 
-/**
- * Base User class — encapsulates user data with getter methods.
- * Admin and Student extend this class (Inheritance).
- */
 export class User {
   protected readonly id: string;
   protected readonly name: string;

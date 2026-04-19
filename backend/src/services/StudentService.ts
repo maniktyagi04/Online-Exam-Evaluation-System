@@ -12,14 +12,13 @@ export class StudentService {
   }
 
   async getDashboardData(userId: string) {
-    // 1. Fetch Stats
+
     const stats = await this.attemptRepository.getStudentStats(userId);
     const publishedExams = await this.examRepository.findPublished();
     
-    // 2. Fetch all user attempts to map status
+
     const userAttempts = await this.attemptRepository.findByUser(userId);
     
-    // 3. Map exams with status
     const examsWithStatus = publishedExams.map(exam => {
       const attempt = userAttempts.find(a => a.examId === exam.id);
       let status = 'NOT_STARTED';
@@ -35,7 +34,6 @@ export class StudentService {
       };
     });
 
-    // 4. Summarize stats
     const dashboardStats = {
       totalAvailable: publishedExams.length,
       attempted: stats.attemptedCount,
@@ -43,7 +41,6 @@ export class StudentService {
       highestScore: stats.highestScore
     };
 
-    // 5. Recent attempts (last 5)
     const recentAttempts = userAttempts
       .filter(a => a.endTime !== null)
       .slice(0, 5)

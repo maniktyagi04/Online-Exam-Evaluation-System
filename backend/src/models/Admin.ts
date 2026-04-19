@@ -1,8 +1,5 @@
 import { User, Role } from './User';
 
-/**
- * Admin extends User — has full management capabilities.
- */
 export class Admin extends User {
   constructor(
     id: string,

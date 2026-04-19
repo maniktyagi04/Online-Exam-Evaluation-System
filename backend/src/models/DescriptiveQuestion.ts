@@ -1,9 +1,5 @@
 import { Question, QuestionType } from './Question';
 
-/**
- * DescriptiveQuestion — returns 0 by default (requires manual grading).
- * The evaluate() method is a placeholder for future NLP/manual grading.
- */
 export class DescriptiveQuestion extends Question {
   constructor(
     id: string,
