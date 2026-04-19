@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-  baseURL: '/api',
+  baseURL: (import.meta.env.VITE_API_URL as string) || '/api',
   headers: { 'Content-Type': 'application/json' },
-  timeout: 10000,
+  timeout: 15000, // Slightly longer timeout for production cold starts
 });
 
 // Attach JWT token automatically
