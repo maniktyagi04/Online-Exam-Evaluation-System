@@ -29,10 +29,16 @@ const Register: React.FC = () => {
       const data = await registerApi(name, email, password);
       login(data.user, data.token);
       navigate('/student');
-    } catch (err: unknown) {
-      const msg = (err as { response?: { data?: { message?: string } } })
-        ?.response?.data?.message ?? 'Registration failed. Please try again.';
-      setError(msg);
+    } catch (err: any) {
+      if (err.response) {
+        // Backend returned an error response
+        setError(err.response.data?.message || 'Registration failed. Server error.');
+      } else if (err.request) {
+        // Request was made but no response received (CORS or Network issue)
+        setError('Network error. Could not connect to the backend server.');
+      } else {
+        setError('An unexpected error occurred. Please try again.');
+      }
     } finally {
       setLoading(false);
     }
